@@ -1,0 +1,42 @@
+@use "variables" as v;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: v.$color-black;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: v.$color-black;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  section[id] {
+    scroll-margin-top: 90px;
+  }
+
+  body {
+    font-family: "open sans";
+    background: v.$color-white;
+
+    .container {
+      padding: 60px 0;
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .title-one {
+      color: v.$color-black;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+  }
+}

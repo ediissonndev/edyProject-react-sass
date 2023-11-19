@@ -1,0 +1,13 @@
+@use "../variables" as v;
+@use "navbar" as n;
+@use "home" as h;
+
+header {
+  width: 100%;
+  height: 470px;
+  position: relative;
+  background: v.$bg-color-gradient;
+  
+  @include n.navbar();
+  @include h.home();
+}
