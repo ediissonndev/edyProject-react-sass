@@ -1,0 +1,47 @@
+@use "../variables" as v;
+
+.experience {
+  width: auto;
+  height: auto;
+
+  @mixin mvx($medida: 1035px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
+
+  .service-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .service-ind {
+      width: 31%;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid v.$color-white;
+      transition: all ease 300ms;
+      color: v.$color-white;
+      @include mvx() {
+        margin: 0 auto;
+      }
+
+      img {
+        width: 85%;
+      }
+
+      h3 {
+        margin: 10px 0;
+      }
+
+      p {
+        font-weight: 100;
+        text-align: justify;
+      }
+    }
+
+    .service-ind:hover {
+      transform: scale(1.04);
+    }
+  }
+}

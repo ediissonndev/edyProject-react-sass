@@ -1,0 +1,77 @@
+@use "../variables" as v;
+
+main {
+  .about-me {
+    width: 100%;
+    height: 550px;
+
+    @mixin mva($medida: 1035px) {
+      @media screen and (max-width: $medida) {
+        @content;
+      }
+    }
+
+    .container-about-me {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .img-about-me {
+      width: 43%;
+      margin-left: 5px;
+      filter: drop-shadow(10px 8px 6px v.$color-white);
+      @include mva() {
+        width: 0%;
+        margin-left: 0%;
+        filter: none;
+      }
+    }
+
+    .content-text {
+      width: 62%;
+      gap: 10px;
+      @include mva() {
+        position: absolute;
+        width: 95%;
+        padding-left: 6%;
+      }
+
+      h3 {
+        font-size: 25px;
+        color: v.$color-white;
+        @include mva() {
+          text-align: center;
+        }
+      }
+
+      p {
+        margin-top: 35px;
+        font-weight: 300;
+        text-align: justify;
+        line-height: 1.8;
+        color: v.$color-white;
+      }
+
+      .icons-links {
+        display: flex;
+        justify-content: center;
+
+        a {
+          color: v.$color-white;
+          font-size: 33px;
+
+          .icon-link {
+            margin: 20px 35px 10px 0px;
+            transition: all ease 300ms;
+            @include mva() {
+            }
+          }
+
+          .icon-link:hover {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
+  }
+}

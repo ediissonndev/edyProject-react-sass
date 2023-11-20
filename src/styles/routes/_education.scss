@@ -1,0 +1,75 @@
+@use "../variables" as v;
+
+.education {
+  width: auto;
+  height: auto;
+
+  @mixin mve($medida: 800px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
+
+  .title-education {
+    color: v.$color-white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 65px;
+    margin-bottom: 45px;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-evenly;
+
+    @include mve() {
+      display: block;
+    }
+
+    .card {
+      background: v.$color-white;
+      display: flex;
+      width: 46%;
+      height: 200px;
+      align-items: center;
+      justify-content: space-evenly;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 8);
+      transition: all ease 300ms;
+      @include mve() {
+        width: 90%;
+        margin: 34px;
+        box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 10);
+        border-radius: 10px;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 3px solid v.$color-black;
+        border-radius: 50%;
+        display: block;
+      }
+
+      .content-text-card {
+        width: 60%;
+        color: v.$color-black;
+        @include mve() {
+          width: 75%;
+        }
+
+        p {
+          padding-top: 6px;
+          @include mve() {
+            padding-top: 12px;
+          }
+        }
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.04);
+    }
+  }
+}

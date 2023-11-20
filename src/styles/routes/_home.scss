@@ -1,0 +1,76 @@
+@use "../variables" as v;
+
+header {
+  width: 100%;
+  height: 100%;
+
+  @mixin mvh($medida: 710px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
+
+  .home {
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+    padding-top: 150px;
+    @include mvh() {
+      margin-left: 20px;
+    }
+
+    .text-presentation {
+      font-size: 50px;
+      color: v.$color-white;
+      margin: 50px;
+      width: 45%;
+      @include mvh() {
+        font-size: 45px;
+      }
+
+      h1 {
+        font-size: 85px;
+        color: v.$color-white;
+        display: inline;
+        @include mvh() {
+          font-size: 75px;
+        }
+      }
+
+      h2 {
+        font-size: 50px;
+        font-weight: 200;
+        color: v.$color-white;
+        @include mvh() {
+          font-size: 45px;
+        }
+        @include mvh(800px) {
+          font-size: 35px;
+        }
+      }
+    }
+
+    .dog {
+      width: 35%;
+      height: 10%;
+      transform: translate(0px);
+      animation: float 6s ease-out infinite;
+      @include mvh() {
+        width: 35%;
+        height: 35%;
+      }
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    40% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}

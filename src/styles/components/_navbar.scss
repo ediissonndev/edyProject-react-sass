@@ -1,32 +1,40 @@
 @use "../variables" as v;
 
-@mixin navbar() {
-  nav {
-    background: v.$bg-color-gradient;
-    display: flex;
-    padding: 35px 70px 0 0;
-    font-family: v.$font-first;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    width: 100%;
-    height: 20%;
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  background: v.$bg-color-gradient;
+  font-family: v.$font-first;
+  margin-top: 35px;
+  padding-right: 70px;
+  width: 100%;
+  height: 18%;
 
+  .title {
+    margin-left: 4rem;
+    font-size: 23px;
+    color: white;
     h1 {
-      flex: auto;
-      color: v.$color-white;
-      margin-left: 70px;
+      display: inline-block;
+      margin-left: 10px;
     }
+  }
 
-    a {
+  .buttons-all {
+
+    padding-top: 12px;
+
+    .buttons {
       color: v.$color-white;
       font-weight: 300;
       text-decoration: none;
       margin-right: 25px;
       text-decoration: none;
+      transition: 0.3s;
     }
 
-    a:hover {
+    .buttons:hover {
       color: rgba(0, 212, 255, 1);
     }
   }

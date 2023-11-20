@@ -1,7 +1,7 @@
 @use "variables" as v;
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,20 +22,21 @@ html {
 
   body {
     font-family: "open sans";
-    background: v.$color-white;
+    background: v.$bg-color-gradient;
 
     .container {
-      padding: 60px 0;
-      width: 90%;
+      width: 100%;
       max-width: 1000px;
+      padding: 60px 0;
       margin: auto;
       overflow: hidden;
     }
 
     .title-one {
-      color: v.$color-black;
-      font-size: 30px;
+      color: v.$color-white;
       text-align: center;
+      font-size: 30px;
+      margin-top: 65px;
       margin-bottom: 45px;
     }
   }
