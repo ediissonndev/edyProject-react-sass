@@ -45,7 +45,7 @@ header {
           font-size: 45px;
         }
         @include mvh(800px) {
-          font-size: 35px;
+          font-size: 45px;
         }
       }
     }
@@ -58,6 +58,12 @@ header {
       @include mvh() {
         width: 35%;
         height: 35%;
+      }
+      @include mvh(900px) {
+        padding-top: 30px;
+      }
+      @include mvh(800px) {
+        padding-top: 30px;
       }
     }
   }
