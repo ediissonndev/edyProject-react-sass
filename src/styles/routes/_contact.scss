@@ -1,15 +1,25 @@
 @use "../variables" as v;
 
 footer {
-  margin: auto;
+  width: auto;
+  height: auto;
   overflow: hidden;
+
+  @mixin mvc($medida: 950px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
 
   .form-contact {
     background-color: v.$color-white;
+    //filter: drop-shadow(0 0 0.35rem v.$color-white);
     margin: 7rem 15rem 5rem 15rem;
     padding: 20px;
     border-radius: 5px;
-    filter: drop-shadow(0 0 0.35rem v.$color-white);
+    @include mvc() {
+      margin: 10rem 5rem 10rem 5rem;
+    }
 
     label {
       color: v.$color-black;

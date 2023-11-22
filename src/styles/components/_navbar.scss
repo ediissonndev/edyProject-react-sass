@@ -10,11 +10,18 @@ nav {
   width: 100%;
   height: 18%;
 
+  @mixin mvn($medida: 768px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
+
   .title {
     padding-top: 18px;
     margin-left: 4rem;
     font-size: 23px;
     color: white;
+
     h1 {
       display: inline-block;
       margin-left: 10px;
@@ -24,6 +31,52 @@ nav {
   .buttons-all {
     padding-top: 30px;
 
+    #check:checked ~ ul {
+      left: 0;
+      transition: all 0.25s;
+    }
+
+    #check,
+    .menu-icon {
+      display: none;
+    }
+
+    .checkbtn {
+      @include mvn() {
+        display: block;
+      }
+    }
+
+    .menu-icon {
+      @include mvn() {
+        display: block;
+        top: 25px;
+        right: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 2px;
+      color: v.$color-white;
+    }
+
+    ul {
+      @include mvn() {
+        background: v.$bg-color-gradient;
+        font-size: 20px;
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        right: 0;
+      }
+    }
+
     .buttons {
       color: v.$color-white;
       font-weight: 300;
@@ -31,10 +84,21 @@ nav {
       margin-right: 25px;
       text-decoration: none;
       transition: 0.3s;
+
+      @include mvn() {
+        display: flex;
+        padding: 40px 0px 0px 0px;
+        justify-content: center;
+        margin: 0px;
+      }
     }
 
     .buttons:hover {
-      color: rgba(0, 212, 255, 1);
+      color: v.$color-cyan;
+
+      @include mvn() {
+        color: v.$color-cyan;
+      }
     }
   }
 }

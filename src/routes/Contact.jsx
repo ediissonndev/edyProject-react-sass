@@ -6,7 +6,7 @@ const Contact = () => {
     <>
       <NavBar></NavBar>
       <footer>
-        <div className="form-contact">
+      <div className="form-contact">
           <form action="">
             <label htmlFor="fname">First Name:</label>
             <input type="text" name="fname" id="fname" />

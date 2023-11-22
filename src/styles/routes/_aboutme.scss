@@ -1,14 +1,19 @@
 @use "../variables" as v;
 
 main {
+
+  @mixin mva($medida: 950px) {
+    @media screen and (max-width: $medida) {
+      @content;
+    }
+  }
+
   .about-me {
     width: 100%;
     height: 550px;
-
-    @mixin mva($medida: 1035px) {
-      @media screen and (max-width: $medida) {
-        @content;
-      }
+    @include mva() {
+      width: 100%;
+      height: 100%;
     }
 
     .container-about-me {
@@ -31,7 +36,6 @@ main {
       width: 62%;
       gap: 10px;
       @include mva() {
-        position: absolute;
         width: 95%;
         padding-left: 6%;
       }
@@ -41,20 +45,27 @@ main {
         color: v.$color-white;
         @include mva() {
           text-align: center;
+          width: 90%;
         }
       }
 
       p {
+        width: 98%;
         margin-top: 35px;
         font-weight: 300;
         text-align: justify;
         line-height: 1.8;
         color: v.$color-white;
+        @include mva() {
+          text-align: center;
+          width: 90%;
+        }
       }
 
       .icons-links {
         display: flex;
         justify-content: center;
+        width: 95%;
 
         a {
           color: v.$color-white;
@@ -64,6 +75,7 @@ main {
             margin: 20px 35px 10px 0px;
             transition: all ease 300ms;
             @include mva() {
+              margin: 30px 35px 0px 0px;
             }
           }
 
