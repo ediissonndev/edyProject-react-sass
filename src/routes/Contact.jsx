@@ -1,30 +1,96 @@
+// React
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
+// Schema
+import { contactSchema } from "../schemas/contactSchema";
+
 // Components
 import NavBar from "../components/Navbar";
 
+const initialValues = {
+  fname: "",
+  lname: "",
+  email: "",
+  number: "",
+  comment: "",
+};
+
 const Contact = () => {
+  let onSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Process form`);
+  };
+
   return (
     <>
       <NavBar></NavBar>
       <footer>
-      <div className="form-contact">
-          <form action="">
-            <label htmlFor="fname">First Name:</label>
-            <input type="text" name="fname" id="fname" />
-            <p>Your first name is invalid!</p>
-            <label htmlFor="lname">Last Name:</label>
-            <input type="text" name="lname" id="lname" />
-            <p>Your last name is invalid!</p>
-            <label htmlFor="email">Email:</label>
-            <input type="text" name="email" id="email" />
-            <p>Your email is invalid!</p>
-            <label htmlFor="number">Phone Number:</label>
-            <input type="text" name="number" id="number" />
-            <p>Your phone number is invalid!</p>
-            <label htmlFor="subject">Comments:</label>
-            <textarea name="subject" id="subject"></textarea>
-            <p>Your comments is invalid!</p>
-            <input type="submit" value="Submit" />
-          </form>
+        <div className="form-contact">
+          <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={contactSchema}
+          >
+            <Form autoComplete="off">
+              <fieldset>
+                <label htmlFor="fname">First Name:</label>
+                <Field
+                  className="field"
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  autoFocus
+                />
+                <ErrorMessage
+                  name="fname"
+                  component="p"
+                  className="error-message"
+                />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="lname">Last Name:</label>
+                <Field className="field" type="text" name="lname" id="lname" />
+                <ErrorMessage
+                  name="lname"
+                  component="p"
+                  className="error-message"
+                />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="email">Email:</label>
+                <Field className="field" type="text" name="email" id="email" />
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  className="error-message"
+                />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="number">Phone Number:</label>
+                <Field
+                  className="field"
+                  type="text"
+                  name="number"
+                  id="number"
+                />
+                <ErrorMessage
+                  name="number"
+                  component="p"
+                  className="error-message"
+                />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="subject">Comments:</label>
+                <Field as="textarea" name="comment" id="comment"></Field>
+                <ErrorMessage
+                  name="comment"
+                  component="p"
+                  className="error-message"
+                />
+              </fieldset>
+              <input className="field" type="submit" value="Submit" />
+            </Form>
+          </Formik>
         </div>
         <div id="contact" className="container-contact">
           <div className="content-contact">

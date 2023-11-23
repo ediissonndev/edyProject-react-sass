@@ -25,7 +25,9 @@ header {
       margin: 50px;
       width: 45%;
       @include mvh() {
-        font-size: 45px;
+        font-size: 55px;
+        width: 100%;
+        text-align: center;
       }
 
       h1 {
@@ -33,6 +35,9 @@ header {
         color: v.$color-white;
         display: inline;
         @include mvh() {
+          font-size: 85px;
+        }
+        @include mvh(797px) {
           font-size: 75px;
         }
       }
@@ -42,10 +47,10 @@ header {
         font-weight: 200;
         color: v.$color-white;
         @include mvh() {
-          font-size: 45px;
+          font-size: 60px;
         }
-        @include mvh(800px) {
-          font-size: 45px;
+        @include mvh(797px) {
+          font-size: 48px;
         }
       }
     }
