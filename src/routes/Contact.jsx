@@ -81,7 +81,7 @@ const Contact = () => {
               </fieldset>
               <fieldset>
                 <label htmlFor="subject">Comments:</label>
-                <Field as="textarea" name="comment" id="comment"></Field>
+                <Field className="field" as="textarea" name="comment" id="comment"></Field>
                 <ErrorMessage
                   name="comment"
                   component="p"
